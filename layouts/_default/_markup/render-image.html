@@ -2,12 +2,13 @@
 {{ $alt := .PlainText | safeHTML }}
 {{ $title := .Title | safeHTML}}
 {{ if .Title }}
-<a href="{{ $src }}" title="{{ $title }}">
-  <figure>
+<figure>
+  <a href="{{ $src }}" title="{{ $title }}">
     <img src="{{ $src }}" alt="{{ $alt }}" title="{{ $title }}" class="center" />
-    <figcaption>{{ $title }}</figcaption>
-  </figure>
-</a>
+  </a>
+  <figcaption>{{ $title }}</figcaption>
+</figure>
+
 {{ else }}
 <a href="{{ $src }}">
   <img src="{{ $src }}" alt="{{ $alt }}" class="center" />
