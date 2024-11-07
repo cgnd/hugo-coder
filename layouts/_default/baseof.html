@@ -21,7 +21,7 @@
     {{ partial "footer.html" . }}
   </main>
 
-  {{ if .Site.IsServer }}
+  {{ if hugo.IsServer }}
   {{ $script := resources.Get "js/coder.js" }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
@@ -30,7 +30,7 @@
   {{ end }}
 
   {{ range .Site.Params.customJS }}
-  {{ if $.Site.IsServer }}
+  {{ if hugo.IsServer }}
   {{ $script := resources.Get . }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
@@ -67,7 +67,7 @@
 
   {{ if and .Site.Params.applicationInsights .Site.Params.applicationInsights.connectionString }}
     {{- partial "analytics/applicationinsights" . -}}
-  {{ end }}   
+  {{ end }}
 
   {{- partial "body/extensions" . -}}
 </body>
